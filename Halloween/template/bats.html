@@ -1,0 +1,50 @@
+<script type="text/javascript">
+<!--
+
+/*
+Flying Bats- By Dynamic Drive, based on script by Kurt (kurt.grigg@virgin.net)
+For full source, usage terms, and 100's more DHTML scripts
+Visit http://www.dynamicdrive.com
+*/
+
+var ImageArray=["{{ T_THEME_PATH }}/images/bats/bat1.png","{{ T_THEME_PATH }}/images/bats/bat2.png","{{ T_THEME_PATH }}/images/bats/ghost1.gif","{{ T_THEME_PATH }}/images/bats/bat3.png"];
+var Xpos=600;  //cupids x coordinates, in pixel
+var Ypos=200;  //cupids y coordinates, in pixel
+var step=0.2;  //Animation speed (smaller is slower)
+var dismissafter=6;  //seconds after which Cupids should disappear, in seconds
+
+document.write('<div id="out" style="position:absolute;top:0;left:0"><div id="in" style="position:relative">');
+for (var i=0; i < ImageArray.length; i++){
+ document.write('<a href="#"><img src="'+ImageArray[i]+'" id="ns6Bats'+i+'" width=69 height=60 style="position:absolute;top:-50;left:0" border=0></a>')
+}
+document.write('</div></div>');
+
+var currStep=0;
+
+function dismisscupid(){
+ clearInterval(flycupid)
+ document.getElementById("out").style.visibility="hidden"
+}
+
+
+function WWHS(){
+ if (window.innerHeight) return [window.innerWidth-10,window.innerHeight-10,window.pageXOffset,window.pageYOffset];
+ else if (document.documentElement.clientHeight) return [document.documentElement.clientWidth-10,document.documentElement.clientHeight-10,document.documentElement.scrollLeft,document.documentElement.scrollTop];
+ return [document.body.clientWidth,document.body.clientHeight,document.body.scrollLeft,document.body.scrollTop];
+}
+
+function Animate(){
+ currStep+=step;
+ var wwhs=WWHS(),yBase = wwhs[1]/3,xBase = wwhs[0]/6;
+ for (var i=0; i <ImageArray.length; i++){
+  document.getElementById("ns6Bats"+i).style.top = Ypos+yBase*Math.sin(((currStep)+i*3.7)/4)*Math.cos((currStep+i*35)/10)+wwhs[3]+'px';
+  document.getElementById("ns6Bats"+i).style.left =Xpos+xBase*Math.cos(((currStep)+i*3.7)/4)*Math.cos((currStep+i*35)/62)+wwhs[2]+'px';
+ }
+
+}
+
+flycupid=setInterval('Animate()',30);
+setTimeout("dismisscupid()",dismissafter*1000)
+
+//-->
+</script>
