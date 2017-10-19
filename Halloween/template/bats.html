@@ -7,11 +7,12 @@ For full source, usage terms, and 100's more DHTML scripts
 Visit http://www.dynamicdrive.com
 */
 
-var ImageArray=["{{ T_THEME_PATH }}/images/bats/bat1.png","{{ T_THEME_PATH }}/images/bats/bat2.png","{{ T_THEME_PATH }}/images/bats/ghost1.gif","{{ T_THEME_PATH }}/images/bats/bat3.png"];
-var Xpos=600;  //cupids x coordinates, in pixel
-var Ypos=200;  //cupids y coordinates, in pixel
+var ImageArray=["{{ T_THEME_PATH }}/images/bats/bat1.png","{{ T_THEME_PATH }}/images/bats/bat2.png","{{ T_THEME_PATH }}/images/bats/witch.png","{{ T_THEME_PATH }}/images/bats/ghost1.gif","{{ T_THEME_PATH }}/images/bats/bat3.png"];
+var Xpos=600;  //bats x coordinates, in pixel
+var Ypos=200;  //bads y coordinates, in pixel
 var step=0.2;  //Animation speed (smaller is slower)
-var dismissafter=6;  //seconds after which Cupids should disappear, in seconds
+var dismissafter=12;  //seconds after which Bats should disappear, in seconds
+jQuery('#loadingbats').fadeOut(13000);  //Time in milliseconds that bats are fading away
 
 document.write('<div id="out" style="position:absolute;top:0;left:0"><div id="in" style="position:relative">');
 for (var i=0; i < ImageArray.length; i++){
