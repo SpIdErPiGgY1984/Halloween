@@ -198,7 +198,6 @@ a:hover	{ text-decoration: underline; }
 /* Round cornered boxes and backgrounds
 ---------------------------------------- */
 .headerbar {
-		background: #06032C url("./images/santa_logo.jpg") no-repeat center center;
 	margin-bottom: 4px;
 	padding: 5px;
 	border-radius: 7px;
