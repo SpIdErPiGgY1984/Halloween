@@ -30,7 +30,7 @@
 		<tbody>
 		{% for user_row in loops.user_row %}
 		<tr class="{% if user_row.S_ROW_COUNT is odd %}bg1{% else %}bg2{% endif %}">
-			<td>{{ user_row.USERNAME_FULL }}{% if user_row.USER_IP %} <span style="float: {{ S_CONTENT_FLOW_END }};">{{ lang('IP') }}{{ lang('COLON') }} <a href="{{ user_row.U_USER_IP }}">{{ user_row.USER_IP }}</a> &#187; <a href="{{ user_row.U_WHOIS }}" onclick="popup(this.href, 750, 500); return false;">{{ lang('WHOIS') }}</a></span>{% endif %}
+			<td>{% EVENT viewonline_body_username_prepend %}{{ user_row.USERNAME_FULL }}{% EVENT viewonline_body_username_append %}{% if user_row.USER_IP %} <span style="float: {{ S_CONTENT_FLOW_END }};">{{ lang('IP') }}{{ lang('COLON') }} <a href="{{ user_row.U_USER_IP }}">{{ user_row.USER_IP }}</a> &#187; <a href="{{ user_row.U_WHOIS }}" onclick="popup(this.href, 750, 500); return false;">{{ lang('WHOIS') }}</a></span>{% endif %}
 				{% if user_row.USER_BROWSER %}<br />{{ user_row.USER_BROWSER }}{% endif %}</td>
 			<td class="info"><a href="{{ user_row.U_FORUM_LOCATION }}">{{ user_row.FORUM_LOCATION }}</a></td>
 			<td class="active">{{ user_row.LASTUPDATE }}</td>
