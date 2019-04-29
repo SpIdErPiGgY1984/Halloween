@@ -103,7 +103,11 @@
 								{% endif %}
 								<br />{{ forumrow.LAST_POST_TIME }}
 							{% else %}
-								{{ lang('NO_POSTS') }}<br />&nbsp;
+							{% if forumrow.U_UNAPPROVED_TOPICS %}
+								{{ lang('TOPIC_UNAPPROVED_FORUM', forumrow.TOPICS) }}
+							{% else %}
+								{{ lang('NO_POSTS') }}
+							{% endif %}
 							{% endif %}
 						</span>
 					</dd>
