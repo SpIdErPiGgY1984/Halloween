@@ -2,16 +2,16 @@
 	</div>
 
 {% EVENT overall_footer_page_body_after %}
-		<div class="panel">
-			<div class="inner">
+
 <div id="page-footer" class="page-footer" role="contentinfo">
 	{% INCLUDE 'navbar_footer.html' %}
-
+		<br>
+		<div class="panel">
+			<div class="inner">
 	<div class="copyright">
 		{% EVENT overall_footer_copyright_prepend %}
 		<p class="footer-row">
-			<span class="footer-copyright">{{ CREDIT_LINE }}
-			<br><a href="https://www.solidjeuh.be" title="Halloween" onclick="window.open(this.href); return false">phpBB Halloween Style</a> by Solidjeuh</span>
+			<span class="footer-copyright">{{ CREDIT_LINE }}<br>Halloween Style By <a href="https://www.myarea51secrets.be" title="SpIdErPiGgY" onclick="window.open(this.href); return false">SpIdErPiGgY</a></span>
 		</p>
 		{% if TRANSLATION_INFO %}
 		<p class="footer-row">
@@ -19,7 +19,7 @@
 		</p>
 		{% endif %}
 		{% EVENT overall_footer_copyright_append %}
-		<p class="footer-row">
+		<p class="footer-row" role="menu">
 			<a class="footer-link" href="{{ U_PRIVACY }}" title="{{ lang('PRIVACY_LINK') }}" role="menuitem">
 				<span class="footer-link-text">{{ lang('PRIVACY_LINK') }}</span>
 			</a>
@@ -38,6 +38,8 @@
 			<a class="footer-link text-strong" href="{{ U_ACP }}">{{ lang('ACP') }}</a>
 		</p>
 		{% endif %}
+		<br><div class="gamebanner"></div>
+		<div style="clear: both"></div>
 	</div>
 
 	<div id="darkenwrapper" class="darkenwrapper" data-ajax-error-title="{{ lang('AJAX_ERROR_TITLE') }}" data-ajax-error-text="{{ lang('AJAX_ERROR_TEXT') }}" data-ajax-error-text-abort="{{ lang('AJAX_ERROR_TEXT_ABORT') }}" data-ajax-error-text-timeout="{{ lang('AJAX_ERROR_TEXT_TIMEOUT') }}" data-ajax-error-text-parsererror="{{ lang('AJAX_ERROR_TEXT_PARSERERROR') }}">
@@ -58,7 +60,7 @@
 	</div>
 </div>
 		</div>
-	</div>
+	</div>	
 </div>
 
 <div>
@@ -67,7 +69,7 @@
 </div>
 
 <script src="{{ T_JQUERY_LINK }}"></script>
-{% if S_ALLOW_CDN %}<script>window.jQuery || document.write('\x3Cscript src="{{ T_ASSETS_PATH }}/javascript/jquery.min.js?assets_version={{ T_ASSETS_VERSION }}">\x3C/script>');</script>{% endif %}
+<!-- IF S_ALLOW_CDN --><script>window.jQuery || document.write('\x3Cscript src="{T_ASSETS_PATH}/javascript/jquery-3.6.0.min.js?assets_version={T_ASSETS_VERSION}">\x3C/script>');</script><!-- ENDIF -->
 <script src="{{ T_ASSETS_PATH }}/javascript/core.js?assets_version={{ T_ASSETS_VERSION }}"></script>
 {% INCLUDEJS 'forum_fn.js' %}
 {% INCLUDEJS 'ajax.js' %}
@@ -88,17 +90,17 @@
 {% if S_COOKIE_NOTICE %}
 	<script src="{{ T_ASSETS_PATH }}/cookieconsent/cookieconsent.min.js?assets_version={{ T_ASSETS_VERSION }}"></script>
 	<script>
-		if (typeof window.cookieconsent === "object") {	
-		window.addEventListener("load", function(){
-			window.cookieconsent.initialise({
-				"palette": {
-					"popup": {
-						"background": "#0F538A"
+		if (typeof window.cookieconsent === "object") {
+			window.addEventListener("load", function(){
+				window.cookieconsent.initialise({
+					"palette": {
+						"popup": {
+							"background": "#0F538A"
+						},
+						"button": {
+							"background": "#E5E5E5"
+						}
 					},
-					"button": {
-						"background": "#E5E5E5"
-					}
-				},
 					"theme": "classic",
 					"content": {
 						"message": "{{ lang('COOKIE_CONSENT_MSG')|escape('js') }}",
@@ -118,6 +120,10 @@
 {{ definition.SCRIPTS }}
 
 {% EVENT overall_footer_body_after %}
+
+</body>
+</html>
+
 <div id="loadingbats"><div class="mobilehide">{% INCLUDE 'bats.html' %}</div></div>
 </body>
 </html>

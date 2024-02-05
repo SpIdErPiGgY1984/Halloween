@@ -32,7 +32,7 @@
 		<li class="row">
 			{% EVENT forumlist_body_forum_row_prepend %}
 			<dl class="row-item {{ forumrow.FORUM_IMG_STYLE }}">
-				<dt title="{{ forumrow.FORUM_FOLDER_IMG_ALT }}">
+				<dt title="{% if forumrow.S_IS_LINK %}{{ lang('FORUM_LINK') }}{% else %}{{ forumrow.FORUM_FOLDER_IMG_ALT }}{% endif %}">
 					{% if forumrow.S_UNREAD_FORUM %}<a href="{{ forumrow.U_VIEWFORUM }}" class="row-item-link"></a>{% endif %}
 					<div class="list-inner">
 						{% if S_ENABLE_FEEDS and forumrow.S_FEED_ENABLED %}
@@ -56,7 +56,7 @@
 							{% EVENT forumlist_body_subforums_before %}
 							<br /><strong>{{ forumrow.L_SUBFORUM_STR }}{{ lang('COLON') }}</strong>
 							{% for subforum in forumrow.subforum %}
-								{% EVENT forumlist_body_subforum_link_prepend %}<a href="{{ subforum.U_SUBFORUM }}" class="subforum{% if subforum.S_UNREAD %} unread{% else %} read{% endif %}" title="{% if subforum.S_UNREAD %}{{ lang('UNREAD_POSTS') }}{% else %}{{ lang('NO_UNREAD_POSTS') }}{% endif %}">
+								<!-- EVENT forumlist_body_subforum_link_prepend --><a href="{forumrow.subforum.U_SUBFORUM}" class="subforum<!-- IF forumrow.subforum.S_UNREAD --> unread<!-- ELSE --> read<!-- ENDIF -->" title="{% if forumrow.subforum.IS_LINK %}{{ lang('FORUM_LINK') }}{% elseif forumrow.subforum.S_UNREAD %}{{ lang('UNREAD_POSTS') }}{% else %}{{ lang('NO_UNREAD_POSTS') }}{% endif %}">
 									<i class="icon {% if subforum.IS_LINK %}fa-external-link{% else %}fa-file-o{% endif %} fa-fw {% if subforum.S_UNREAD %} icon-red{% else %} icon-blue{% endif %} icon-md" aria-hidden="true"></i>{{ subforum.SUBFORUM_NAME }}</a>{% if not subforum.S_LAST_ROW %}{{ lang('COMMA_SEPARATOR') }}{% endif %}{% EVENT forumlist_body_subforum_link_append %}
 							{% endfor %}
 							{% EVENT forumlist_body_subforums_after %}
@@ -89,7 +89,7 @@
 									<i class="icon fa-question fa-fw icon-blue" aria-hidden="true"></i><span class="sr-only">{{ lang('POSTS_UNAPPROVED_FORUM') }}</span>
 								</a>
 							{% endif %}
-							{% if forumrow.LAST_POST_TIME %}
+							<!-- IF forumrow.LAST_POST_TIME_RFC3339 -->
 								<dfn>{{ lang('LAST_POST') }}</dfn>
 								{% if forumrow.S_DISPLAY_SUBJECT %}
 									{% EVENT forumlist_body_last_post_title_prepend %}
@@ -101,7 +101,7 @@
 										<i class="icon fa-external-link-square fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">{{ lang('VIEW_LATEST_POST') }}</span>
 									</a>
 								{% endif %}
-								<br />{{ forumrow.LAST_POST_TIME }}
+								<br /><time datetime="{{ forumrow.LAST_POST_TIME_RFC3339 }}">{{ forumrow.LAST_POST_TIME }}</time>
 							{% else %}
 							{% if forumrow.U_UNAPPROVED_TOPICS %}
 								{{ lang('TOPIC_UNAPPROVED_FORUM', forumrow.TOPICS) }}

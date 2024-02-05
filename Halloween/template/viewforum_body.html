@@ -64,7 +64,7 @@
 				<button class="button button-search" type="submit" title="{{ lang('SEARCH') }}">
 					<i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">{{ lang('SEARCH') }}</span>
 				</button>
-				<a href="{{ U_SEARCH }}" class="button button-search-end" title="{{ lang('SEARCH_ADV') }}">
+				<a href="{{ U_SEARCH_FORUM }}" class="button button-search-end" title="{{ lang('SEARCH_ADV') }}">
 					<i class="icon fa-cog fa-fw" aria-hidden="true"></i><span class="sr-only">{{ lang('SEARCH_ADV') }}</span>
 				</a>
 				{{ S_SEARCH_LOCAL_HIDDEN_FIELDS }}
@@ -168,7 +168,7 @@
 		<li class="row{% if topicrow.S_ROW_COUNT is even %} bg1{% else %} bg2{% endif %}{% if topicrow.S_POST_GLOBAL %} global-announce{% endif %}{% if topicrow.S_POST_ANNOUNCE %} announce{% endif %}{% if topicrow.S_POST_STICKY %} sticky{% endif %}{% if topicrow.S_TOPIC_REPORTED %} reported{% endif %}">
 			{% EVENT viewforum_body_topic_row_prepend %}
 			<dl class="row-item {{ topicrow.TOPIC_IMG_STYLE }}">
-				<dt{% if topicrow.TOPIC_ICON_IMG and S_TOPIC_ICONS %} style="background-image: url({{ T_ICONS_PATH }}{{ topicrow.TOPIC_ICON_IMG }}); background-repeat: no-repeat;"{% endif %} title="{{ topicrow.TOPIC_FOLDER_IMG_ALT }}">
+				<dt{% if topicrow.TOPIC_ICON_IMG and S_TOPIC_ICONS %} style="background-image: url('{{ T_ICONS_PATH }}{{ topicrow.TOPIC_ICON_IMG }}'); background-repeat: no-repeat;"{% endif %} title="{{ topicrow.TOPIC_FOLDER_IMG_ALT }}">
 					{% if topicrow.S_UNREAD_TOPIC and not S_IS_BOT %}<a href="{{ topicrow.U_NEWEST_POST }}" class="row-item-link"></a>{% endif %}
 					<div class="list-inner">
 						{% EVENT topiclist_row_prepend %}
@@ -198,7 +198,7 @@
 
 						{% if not S_IS_BOT %}
 						<div class="responsive-show" style="display: none;">
-							{{ lang('LAST_POST') }} {{ lang('POST_BY_AUTHOR') }} {% EVENT viewforum_body_last_post_author_username_prepend %}{{ topicrow.LAST_POST_AUTHOR_FULL }}{% EVENT viewforum_body_last_post_author_username_append %} &laquo; <a href="{{ topicrow.U_LAST_POST }}" title="{{ lang('GOTO_LAST_POST') }}">{{ topicrow.LAST_POST_TIME }}</a>
+							{{ lang('LAST_POST') }} {{ lang('POST_BY_AUTHOR') }} {% EVENT viewforum_body_last_post_author_username_prepend %}{{ topicrow.LAST_POST_AUTHOR_FULL }}{% EVENT viewforum_body_last_post_author_username_append %} &laquo; <a href="{{ topicrow.U_LAST_POST }}" title="{{ lang('GOTO_LAST_POST') }}"><time datetime="{{ topicrow.LAST_POST_TIME_RFC3339 }}">{{ topicrow.LAST_POST_TIME }}</time></a>
 							{% if topicrow.S_POST_GLOBAL and FORUM_ID != topicrow.FORUM_ID %}<br />{{ lang('POSTED') }} {{ lang('IN') }} <a href="{{ topicrow.U_VIEW_FORUM }}">{{ topicrow.FORUM_NAME }}</a>{% endif %}
 						</div>
 							{% if topicrow.REPLIES %}
@@ -209,7 +209,9 @@
 						<div class="topic-poster responsive-hide left-box">
 							{% if topicrow.S_HAS_POLL %}<i class="icon fa-bar-chart fa-fw" aria-hidden="true"></i>{% endif %}
 							{% if topicrow.ATTACH_ICON_IMG %}<i class="icon fa-paperclip fa-fw" aria-hidden="true"></i>{% endif %}
-							{{ lang('POST_BY_AUTHOR') }} {% EVENT viewforum_body_topic_author_username_prepend %}{{ topicrow.TOPIC_AUTHOR_FULL }}{% EVENT viewforum_body_topic_author_username_append %} &raquo; {{ topicrow.FIRST_POST_TIME }}
+							{% EVENT topiclist_row_topic_by_author_before %}
+							{{ lang('POST_BY_AUTHOR') }} {% EVENT viewforum_body_topic_author_username_prepend %}{{ topicrow.TOPIC_AUTHOR_FULL }}{% EVENT viewforum_body_topic_author_username_append %} &raquo; <time datetime="{{ topicrow.FIRST_POST_TIME_RFC3339 }}">{{ topicrow.FIRST_POST_TIME }}</time>
+							{% EVENT topiclist_row_topic_by_author_after %}
 							{% if topicrow.S_POST_GLOBAL and FORUM_ID != topicrow.FORUM_ID %} &raquo; {{ lang('IN') }} <a href="{{ topicrow.U_VIEW_FORUM }}">{{ topicrow.FORUM_NAME }}</a>{% endif %}
 						</div>
 
@@ -241,7 +243,7 @@
 								<i class="icon fa-external-link-square fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">{{ VIEW_LATEST_POST }}</span>
 							</a>
 						{% endif %}
-						<br />{{ topicrow.LAST_POST_TIME }}
+						<br /><time datetime="{{ topicrow.LAST_POST_TIME_RFC3339 }}">{{ topicrow.LAST_POST_TIME }}</time>
 					</span>
 				</dd>
 			</dl>
@@ -259,7 +261,7 @@
 	{% if S_IS_POSTABLE %}
 	<div class="panel">
 		<div class="inner">
-		<strong>{{ lang('NO_TOPICS') }}</strong>
+		<strong>{{ lang(S_SORT_DAYS ? 'NO_TOPICS_TIME_FRAME' : 'NO_TOPICS') }}</strong>
 		</div>
 	</div>
 	{% elseif not S_HAS_SUBFORUM %}
@@ -307,6 +309,8 @@
 
 {% INCLUDE 'jumpbox.html' %}
 
+{% EVENT viewforum_body_online_list_before %}
+
 {% if S_DISPLAY_ONLINE_LIST and U_VIEWONLINE %}
 	<div class="stat-block online-list">
 		<h3><a href="{{ U_VIEWONLINE }}">{{ lang('WHO_IS_ONLINE') }}</a></h3>
@@ -314,7 +318,7 @@
 	</div>
 {% endif %}
 
-{% if S_DISPLAY_POST_INFO %}
+{% if S_IS_POSTABLE and rules|length %}
 	<div class="stat-block permissions">
 		<h3>{{ lang('FORUM_PERMISSIONS') }}</h3>
 		<p>{% for rules in loops.rules %}{{ rules.RULE }}<br />{% endfor %}</p>

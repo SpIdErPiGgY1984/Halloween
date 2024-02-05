@@ -23,10 +23,10 @@
 {% endif %}
 
 <!--
-	phpBB style name: prosilver
-	Based on style:   prosilver (this is the default phpBB3 style)
-	Original author:  Tom Beddard ( http://www.subBlue.com/ )
-	Modified by:
+	phpBB style name:	Halloween
+	Based on style:		prosilver (this is the default phpBB3 style)
+	Original author:	Tom Beddard ( http://www.subBlue.com/ )
+	Modified by:		Onnozel Manneke ( https://www.phpbbnl.be )
 -->
 
 {% if S_ALLOW_CDN %}
@@ -39,7 +39,7 @@
 
 	(function(d) {
 		var wf = d.createElement('script'), s = d.scripts[0];
-		wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js';
+		wf.src = 'https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js';
 		wf.async = true;
 		s.parentNode.insertBefore(wf, s);
 	})(document);
@@ -85,7 +85,9 @@
 			<div class="inner">
 
 			<div id="site-description" class="site-description">
-				<a id="logo" class="logo" href="{% if U_SITE_HOME %}{{ U_SITE_HOME }}{% else %}{{ U_INDEX }}{% endif %}" title="{% if U_SITE_HOME %}{{ lang('SITE_HOME') }}{% else %}{{ lang('INDEX') }}{% endif %}"><span class="site_logo"></span></a>
+			<a id="logo" class="logo" href="{% if U_SITE_HOME %}{{ U_SITE_HOME }}{% else %}{{ U_INDEX }}{% endif %}" title="{% if U_SITE_HOME %}{{ L_SITE_HOME }}{% else %}{{ L_INDEX }}{% endif %}">
+					<span class="site_logo"></span>
+				</a>
 				<h1>{{ SITENAME }}</h1>
 				<p>{{ SITE_DESCRIPTION }}</p>
 				<p class="skiplink"><a href="#start_here">{{ lang('SKIP') }}</a></p>

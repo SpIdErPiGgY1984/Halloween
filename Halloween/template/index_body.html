@@ -1,19 +1,21 @@
 {% INCLUDE 'overall_header.html' %}
-	<div class="panel">
+
+	<div class="panel bg">
 		<div class="inner">
-<p class="{{ S_CONTENT_FLOW_END }} responsive-center time{% if S_USER_LOGGED_IN %} rightside{% endif %}">{% if S_USER_LOGGED_IN %}{{ LAST_VISIT_DATE }}{% else %}{{ CURRENT_TIME }}{% endif %}</p>
-{% if S_USER_LOGGED_IN %}<p class="responsive-center time">{{ CURRENT_TIME }}</p>{% endif %}
+			<br><p class="{{ S_CONTENT_FLOW_END }} responsive-center time{% if S_USER_LOGGED_IN %} rightside{% endif %}">{% if S_USER_LOGGED_IN %}{{ LAST_VISIT_DATE }}{% else %}{{ CURRENT_TIME }}{% endif %}</p>
+			{% if S_USER_LOGGED_IN %}<p class="responsive-center time">{{ CURRENT_TIME }}</p>{% endif %}
 		</div>
-	</div>
+	</div>	
+
 {% EVENT index_body_markforums_before %}
 {% if U_MARK_FORUMS %}
-	<div class="panel">
+	<div class="panel bg">
 		<div class="inner">
 	<div class="action-bar compact">
 		<a href="{{ U_MARK_FORUMS }}" class="mark-read rightside" accesskey="m" data-ajax="mark_forums_read">{{ lang('MARK_FORUMS_READ') }}</a>
 	</div>
 		</div>
-	</div>	
+	</div>		
 {% endif %}
 {% EVENT index_body_markforums_after %}
 
@@ -22,8 +24,8 @@
 {% EVENT index_body_forumlist_body_after %}
 
 {% if not S_USER_LOGGED_IN and not S_IS_BOT %}
-		<div class="panel">
-			<div class="inner">
+	<div class="panel bg1">
+		<div class="inner">
 	<form method="post" action="{{ S_LOGIN_ACTION }}" class="headerspace">
 	<h3><a href="{{ U_LOGIN_LOGOUT }}">{{ lang('LOGIN_LOGOUT') }}</a>{% if S_REGISTER_ENABLED %}&nbsp; &bull; &nbsp;<a href="{{ U_REGISTER }}">{{ lang('REGISTER') }}</a>{% endif %}</h3>
 		<fieldset class="quick-login">
@@ -40,23 +42,24 @@
 			{{ S_FORM_TOKEN_LOGIN }}
 		</fieldset>
 	</form>
-		</div>
 	</div>
+</div>
 {% endif %}
-
-		<div class="panel">
-			<div class="inner">
+	<div class="panel bg1">
+		<div class="inner">
+		<div class="content">
 {% EVENT index_body_stat_blocks_before %}
 
 {% if S_DISPLAY_ONLINE_LIST %}
 	<div class="stat-block online-list">
 		{% if U_VIEWONLINE %}<h3><a href="{{ U_VIEWONLINE }}">{{ lang('WHO_IS_ONLINE') }}</a></h3>{% else %}<h3>{{ lang('WHO_IS_ONLINE') }}</h3>{% endif %}
+		<img src="{{ T_THEME_PATH }}/images/whosonline.png" style="padding-right: 5px; float: left" alt="{{ lang('WHO_IS_ONLINE') }}">
 		<p>
 			{% EVENT index_body_block_online_prepend %}
-			{{ TOTAL_USERS_ONLINE }} ({{ lang('ONLINE_EXPLAIN') }})<br />{{ RECORD_USERS }}<br /> 
+			<i class="fa fa-sign-in"></i> {{ TOTAL_USERS_ONLINE }} ({{ lang('ONLINE_EXPLAIN') }})<br><i class="fa fa-tachometer"></i> {{ RECORD_USERS }}<br> 
 			{% if U_VIEWONLINE %}
-				<br />{{ LOGGED_IN_USER_LIST }}
-				{% if LEGEND %}<br /><em>{{ lang('LEGEND') }}{{ lang('COLON') }} {{ LEGEND }}</em>{% endif %}
+				<br><i class="fa fa-group"></i> {{ LOGGED_IN_USER_LIST }}
+				{% if LEGEND %}<br><em><i class="fa fa-star"></i> {{ lang('LEGEND') }}{{ lang('COLON') }} {{ LEGEND }}</em>{% endif %}
 			{% endif %}
 			{% EVENT index_body_block_online_append %}
 		</p>
@@ -68,9 +71,10 @@
 {% if S_DISPLAY_BIRTHDAY_LIST %}
 	<div class="stat-block birthday-list">
 		<h3>{{ lang('BIRTHDAYS') }}</h3>
+		<img src="{{ T_THEME_PATH }}/images/birthday.png" style="padding-right: 5px; float: left" alt="{{ lang('BIRTHDAYS') }}">
 		<p>
 			{% EVENT index_body_block_birthday_prepend %}
-			{% if loops.birthdays|length %}{{ lang('CONGRATULATIONS') }}{{ lang('COLON') }} <strong>{% for birthdays in loops.birthdays %}{{ birthdays.USERNAME }}{% if birthdays.AGE !== '' %} ({{ birthdays.AGE }}){% endif %}{% if not birthdays.S_LAST_ROW %}, {% endif %}{% endfor %}</strong>{% else %}{{ lang('NO_BIRTHDAYS') }}{% endif %}
+			<i class="fa fa-birthday-cake"></i> {% if loops.birthdays|length %}{{ lang('CONGRATULATIONS') }}{{ lang('COLON') }} <strong>{% for birthdays in loops.birthdays %}{{ birthdays.USERNAME }}{% if birthdays.AGE !== '' %} ({{ birthdays.AGE }}){% endif %}{% if not birthdays.S_LAST_ROW %}, {% endif %}{% endfor %}</strong>{% else %}{{ lang('NO_BIRTHDAYS') }}{% endif %}
 			{% EVENT index_body_block_birthday_append %}
 		</p>
 	</div>
@@ -79,16 +83,20 @@
 {% if NEWEST_USER %}
 	<div class="stat-block statistics">
 		<h3>{{ lang('STATISTICS') }}</h3>
+		<img src="{{ T_THEME_PATH }}/images/stats.png" style="padding-right: 5px; float: left" alt="{{ lang('STATISTICS') }}">
 		<p>
 			{% EVENT index_body_block_stats_prepend %}
 			{{ TOTAL_POSTS }} &bull; {{ TOTAL_TOPICS }} &bull; {{ TOTAL_USERS }} &bull; {{ NEWEST_USER }}
 			{% EVENT index_body_block_stats_append %}
 		</p>
 	</div>
+	<div style="clear:both"></div>
 {% endif %}
-
-{% EVENT index_body_stat_blocks_after %}
-		</div>
+</li>
+	</ul>
 	</div>
 
+{% EVENT index_body_stat_blocks_after %}
+</div>
+</div>
 {% INCLUDE 'overall_footer.html' %}
