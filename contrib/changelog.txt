@@ -1,0 +1,57 @@
+Validation fixes - 2026-10-11
+=============================
+- Fixed subforum URLs, read/unread classes and tooltips by using the active
+  subforum item inside the Twig loop.
+- Fixed unclosed forum-header panels when the forum has no description,
+  no moderators and no MCP link.
+- Retained style version 3.3.19.
+
+Halloween 3.3.19 - 2026-10-05
+===========================
+For phpBB 3.3.19; style version retained at the owner's request.
+
+2026 visual refresh
+-------------------
+- Automatically use a standard block header when Header Banner is enabled,
+  removing the extra right-side flex gap. Preserve banner centring, configured
+  sizes, mobile images and search positions; constrain oversized mobile rules.
+- Fixed Header Banner extension overflow by allowing its wrapper to shrink
+  within the header while preserving image proportions and search positions.
+- Slightly darkened the warm header gradient and improved heading contrast
+  in confirmation dialogs, including the Delete cookies dialog.
+- Centred forum-count badges on both axes and changed pink to blood-red/amber.
+- Skinned native file-upload buttons, select arrows, checkboxes and radio buttons.
+- Added blood-drip accents, a copper blood moon and graveyard silhouettes.
+- Preserved native keyboard operation and high-contrast control fallbacks.
+- Replaced repeating pumpkin/ghost scenery with original SVG moonlight,
+  silhouettes, bats and bare autumn trees.
+- Lightened the header to a warm amber gradient with subtle cobweb artwork.
+- Reduced category title bars and removed their repeating decoration.
+- Recoloured all search inputs, text fields, selects, textareas and autofill.
+- Changed the footer author credit/link to Halloween — Spiderpiggy Trivia,
+  https://spiderpiggy.com.
+- Replaced cartoon overlays with subtle bat silhouettes confined behind
+  header content; the editor and text are never covered by decoration.
+- Preserved compact mobile layouts and original nickname/group colours.
+
+Earlier maintenance work
+------------------------
+
+- Refreshed seven functional templates from current prosilver.
+- Fixed duplicate document closing tags, orphan list tags and unnecessary
+  page-spanning panels/line-break spacing.
+- Preserved all current upstream events, form controls and security tokens.
+- Kept standard WHOIS, ACP access and visible phpBB/translation credits.
+- Included all shared theme CSS locally and supplied the missing bidi.css.
+- Replaced obsolete layout CSS with the current prosilver foundation.
+- Consolidated Halloween colours and removed broken gradients, missing hex
+  prefixes, obsolete filter hacks, duplicate rules and unused styling hacks.
+- Fixed the announce_read_mine icon mapping without changing the artwork.
+- Removed the unrelated rule that hid an extension copyright image.
+- Modernised header/logo sizing, panels, statistics cards, forum rows,
+  form controls, compact UCP/MCP navigation, search, posting and BBCode.
+- Fixed CP column sizing and mobile/RTL logo overflow.
+- Replaced document.write/timer animation with decorative CSS animation.
+- Kept animation out of mobile, reduced-motion and printed views.
+- Retained the original Halloween artwork and user/group nickname colours.
+- Added installation, customisation and validation notes under contrib/.

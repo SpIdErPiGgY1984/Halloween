@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+<!-- Spiderpiggy Trivia, 2026. GPL-2.0. Original vector Halloween scenery. -->
+<defs>
+<linearGradient id="sky" x2="0" y2="1"><stop stop-color="#452522"/><stop offset=".55" stop-color="#292026"/><stop offset="1" stop-color="#15171e"/></linearGradient>
+<radialGradient id="glow"><stop stop-color="#edaf6d" stop-opacity=".24"/><stop offset="1" stop-color="#edaf6d" stop-opacity="0"/></radialGradient>
+<linearGradient id="horizon" x2="0" y2="1"><stop stop-color="#bd6738" stop-opacity="0"/><stop offset=".55" stop-color="#bd6738" stop-opacity=".16"/><stop offset="1" stop-color="#bd6738" stop-opacity="0"/></linearGradient>
+<g id="bat" fill="#211b22"><path d="M0 5Q8-7 19 0L22-8L26-2L30-8L33 0Q44-7 52 5Q44 3 41 13Q34 8 26 19Q18 8 11 13Q8 3 0 5Z"/></g>
+</defs>
+<path fill="url(#sky)" d="M0 0H1600V1000H0Z"/>
+<ellipse cx="1410" cy="158" rx="250" ry="245" fill="url(#glow)"/>
+<circle cx="1410" cy="158" r="64" fill="#d58c64" opacity=".65"/>
+<circle cx="1392" cy="142" r="12" fill="#b07754" opacity=".2"/><circle cx="1436" cy="178" r="18" fill="#b07754" opacity=".17"/>
+<path d="M0 470H1600V990H0Z" fill="url(#horizon)"/>
+<g fill="#f1bc8a" opacity=".38"><circle cx="85" cy="80" r="1.3"/><circle cx="172" cy="214" r="1"/><circle cx="1460" cy="380" r="1.5"/><circle cx="1353" cy="55" r="1"/><circle cx="1513" cy="70" r="1"/><circle cx="68" cy="485" r="1"/><circle cx="1274" cy="298" r="1.2"/><circle cx="368" cy="128" r="1"/><circle cx="143" cy="359" r="1.2"/></g>
+<use href="#bat" transform="translate(1260 208) rotate(-12) scale(1.15)"/>
+<use href="#bat" transform="translate(1480 280) rotate(16) scale(.85)"/>
+<use href="#bat" transform="translate(125 177) rotate(-15) scale(.9)"/>
+<use href="#bat" transform="translate(1360 320) rotate(7) scale(.62)"/>
+<path d="M0 836Q220 740 400 860Q590 820 810 890Q1015 804 1200 850Q1450 730 1600 830V1000H0Z" fill="#1a1920" opacity=".7"/>
+<path d="M0 936Q300 861 600 935Q980 867 1180 930Q1450 842 1600 928V1000H0Z" fill="#12141a"/>
+<g fill="none" stroke="#15141b" stroke-linecap="round">
+<path d="M12 1000Q30 778 12 582Q-4 439 25 252" stroke-width="31"/>
+<path d="M18 737L89 656L120 548M18 599L75 503L57 416M20 499L-14 414M27 342L88 292L112 213M78 665L153 650M75 504L125 481M87 293L77 224" stroke-width="8"/>
+<path d="M1599 1000Q1565 849 1585 661Q1610 481 1585 385" stroke-width="27"/>
+<path d="M1582 795L1501 719L1467 610M1588 660L1527 573L1532 486M1589 488L1512 441L1487 364M1500 721L1448 713M1525 573L1473 550M1513 442L1452 435" stroke-width="7"/>
+</g>
+<!-- Stylised graveyard and dried blood at the edges, outside reading areas. -->
+<g fill="#19151a"><path d="M70 1000V930Q70 904 94 904Q118 904 118 930V1000Z"/><path d="M1475 1000V925Q1475 899 1500 899Q1525 899 1525 925V1000Z"/><path d="M1390 1000V907H1375V895H1390V875H1402V895H1417V907H1402V1000Z"/></g>
+<g fill="#6e2423" opacity=".4"><path d="M14 780Q33 770 38 788Q37 803 27 805L25 840Q24 847 21 841L19 807Q4 801 14 780Z"/><circle cx="48" cy="778" r="3"/><circle cx="9" cy="765" r="2"/><path d="M1580 750Q1598 753 1599 768Q1598 783 1589 784L1588 815Q1584 822 1581 813L1580 785Q1568 780 1573 766Z"/></g>
+</svg>

@@ -1,0 +1,396 @@
+/* Halloween 2026 by Spiderpiggy Trivia: amber, autumn light and twilight scenery.
+   GPL-2.0. Keep user/group nickname colours under phpBB's control. */
+html { background-color: #18191f; }
+body {
+	color: #f5d7ba;
+	background-color: #140e0a;
+	background-image: radial-gradient(ellipse at 15% 0%, rgba(185, 91, 40, .24), transparent 55%), url("./images/halloween-nightfall.svg");
+	background-size: auto, cover;
+	background-position: center, center bottom;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+body { padding: 18px 0; }
+a { color: #e67300; }
+a:hover { color: #ff8102; }
+h1, h2, h3 { color: #ffb56d; }
+h3 { border-color: #654125; }
+.wrap {
+	max-width: 1152px;
+	min-width: 0;
+	padding: 14px;
+	background: linear-gradient(180deg, #352720, #291f1b);
+	border: 1px solid #815335;
+	border-radius: 10px;
+	box-shadow: 0 12px 40px rgba(0, 0, 0, .28);
+}
+#page-header { position: relative; }
+.headerbar {
+	position: relative;
+	padding: 12px 16px;
+	margin-bottom: 10px;
+	background: #cb8b54 url("./images/halloween-web.svg") right top / 220px 150px no-repeat;
+	background-image: url("./images/halloween-web.svg"), linear-gradient(115deg, #dda06a, #c78048);
+	background-size: 220px 150px, cover;
+	background-position: right top, center;
+	border: 1px solid #efa861;
+	border-radius: 8px;
+	color: #432512;
+}
+.headerbar > .inner { position: relative; z-index: 1; display: flex; align-items: center; gap: 18px; }
+/* Header Banner extension: allow a configured wide banner to shrink in flex. */
+.headerbar.halloween-custom-banner > .inner { display: block; }
+.headerbar .banner-header { flex: 1 1 auto; min-width: 0; width: 100%; max-width: 100%; }
+.headerbar .banner-header #hidden { max-width: 100%; overflow-wrap: break-word; }
+.headerbar img.header-banner, .headerbar img.mobile-header-banner { max-width: 100%; height: auto; }
+.headerbar.halloween-custom-banner .header-banner,
+.headerbar.halloween-custom-banner .mobile-header-banner { max-width: 100% !important; margin-left: auto; margin-right: auto; }
+.headerbar.halloween-banner-background-hidden::after { display: none; }
+.site-description { float: none; flex: 1; width: auto; min-width: 0; }
+.headerbar .logo { float: none; padding: 0; display: inline-block; max-width: 100%; }
+.site_logo {
+	background-image: url("./images/site_logo.png");
+	width: 320px;
+	height: 104px;
+	max-width: 100%;
+	background-size: contain;
+	background-position: center;
+}
+.site-description h1 { margin: 8px 0 3px; font-size: 1.65em; color: #49240f; }
+.site-description p { margin: 0; color: #60341c; }
+.search-header { float: none; margin: 0; box-shadow: none; flex-shrink: 0; }
+.search-header .inputbox { border: 1px solid #a65b29; border-right: 0; }
+.search-box .inputbox { border-radius: 4px 0 0 4px; }
+.search-box .button-search { border-radius: 0; }
+.search-box .button-search-end { border-radius: 0 4px 4px 0; }
+.halloween-pumpkin {
+	position: absolute;
+	left: -22px;
+	top: -22px;
+	width: 60px;
+	height: 60px;
+	background: url("./images/pumpkin.png") center / contain no-repeat;
+	pointer-events: none;
+	z-index: 2;
+}
+.navbar {
+	padding: 5px 12px;
+	margin-bottom: 10px;
+	background: linear-gradient(180deg, #f2c195, #ebb17e);
+	border: 1px solid #b56c34;
+	border-radius: 7px;
+	color: #442714;
+}
+.navbar a { color: #7b2e09; }
+.navbar a:hover { color: #9d3f0c; }
+.navbar .badge { color: #fff; }
+ul.navlinks { border-color: #c78855; }
+.panel, .post, .stat-block, .halloween-login {
+	padding: 12px 14px;
+	margin-bottom: 12px;
+	border: 1px solid #c78a57;
+	border-radius: 7px;
+	background: #f5cda9;
+	color: #442714;
+}
+.panel a, .post a, .stat-block a, .halloween-login a { color: #8f350a; }
+.panel a:hover, .post a:hover, .stat-block a:hover { color: #a3430d; }
+.panel h2, .panel h3, .post h3, .stat-block h3 { color: #75300c; border-color: #c78a57; }
+.panel h3, .stat-block h3, .halloween-login h3 { margin: 0 0 10px; padding-bottom: 7px; }
+.content, .postbody, .postprofile, .signature,
+dl.details dt, dl.details dd, dl.mini dt, table.table1 td, ul.topiclist li { color: #442714; }
+label { color: #f5d7ba; }
+.panel label, .post label, .stat-block label, .halloween-login label { color: #442714; }
+.post:target .content, .post:target h3 a, .post h3 a.first-unread { color: #75300c; }
+.bg1 { background-color: #f8d8bd; }
+.bg2, .bg3, .panel-container .panel, .cp-main .pm, .cp-mini { background-color: #f2bc8a; }
+.stat-block { position: relative; min-height: 50px; }
+.stat-block p { margin: 0; line-height: 1.7; }
+.halloween-stat-icon { float: right; width: 48px; height: 48px; margin: 0 0 8px 14px; object-fit: contain; }
+.stat-block::after { content: ""; display: block; clear: both; }
+/* Keep lists and extension output in their original flow. */
+.forabg, .forumbg {
+	padding: 0;
+	margin-bottom: 12px;
+	border: 1px solid #ae5920;
+	border-radius: 7px;
+	background-color: #ce7632;
+	background-image: url("./images/halloween-blood.svg"), linear-gradient(110deg, #e18c43, #ce7632);
+	background-size: 320px 9px, cover;
+	background-position: left top, center;
+	background-repeat: repeat-x, no-repeat;
+}
+ul.topiclist { border-radius: 7px 7px 0 0; }
+ul.topiclist.forums { background: #f5cda9; border-radius: 0 0 6px 6px; }
+li.header dl { padding: 4px 10px; }
+li.header { font-size: 1em; }
+li.header dt, li.header dd { line-height: 1.4; padding-top: 0; padding-bottom: 0; }
+li.header dt .list-inner { padding-top: 1px; padding-bottom: 1px; }
+li.header dt, li.header dd, .forabg .header a, .forumbg .header a { color: #341708; }
+.forabg .header a:hover, .forumbg .header a:hover { color: #54280c; }
+li.row { border-top-color: #e8b487; border-bottom-color: #d8a173; }
+li.row dl { padding-top: 5px; padding-bottom: 5px; }
+li.row:hover, table.table1 tbody tr:hover, table.table1 tbody tr.hover { background-color: #ffe0c4; color: #442714; }
+ul.topiclist dd { border-left-color: #d49b68; }
+.rtl ul.topiclist dd { border-right-color: #d49b68; border-left-color: transparent; }
+.forabg li.row a, .forumbg li.row a { color: #8f350a; }
+.forabg li.row a:hover, .forumbg li.row a:hover { color: #a3430d; }
+.forabg .header a, .forumbg .header a { font-weight: bold; }
+/* Count badges override phpBB's floated notification-badge layout. */
+.badge { background-color: #84271e; opacity: 1; }
+.badge.count {
+	float: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	position: static;
+	margin: 0;
+	min-width: 22px;
+	height: 22px;
+	padding: 2px 6px;
+	box-sizing: border-box;
+	border: 1px solid #b97736;
+	border-radius: 6px;
+	background: linear-gradient(180deg, #8e3026, #631b18);
+	color: #ffe2b7;
+	font-weight: 700;
+	line-height: 1;
+	box-shadow: inset 0 1px 0 rgba(255, 209, 144, .15);
+}
+/* True row-height centring replaces the old padded-column layout on desktop. */
+@media (min-width: 701px) {
+	ul.forums > li.row > dl.row-item { display: flex; align-items: stretch; }
+	ul.forums > li.row > dl.row-item > dt { flex: 1; width: auto; min-width: 0; margin-right: 0; }
+	ul.forums > li.row > dl.row-item > dt .list-inner { margin-right: 0; }
+	ul.forums > li.row > dl.row-item > dd { flex-shrink: 0; padding: 4px 0; margin-bottom: 0; }
+	ul.forums > li.row > dl.row-item > dd.topics, ul.forums > li.row > dl.row-item > dd.posts { display: flex; align-items: center; justify-content: center; }
+	.rtl ul.forums > li.row > dl.row-item > dt, .rtl ul.forums > li.row > dl.row-item > dt .list-inner { margin-left: 0; }
+}
+/* Blood accents stay behind text and never intercept clicks. */
+.headerbar::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	height: 14px;
+	background: url("./images/halloween-blood.svg") left top / 320px 14px repeat-x;
+	opacity: .8;
+	pointer-events: none;
+	border-radius: 7px 7px 0 0;
+}
+.panel, .post, .stat-block, .halloween-login { box-shadow: inset 2px 0 0 rgba(119, 26, 21, .35); }
+/* Warm form controls, compact tabs and clear keyboard focus. */
+.inputbox, select, textarea, fieldset.quick-login input.inputbox,
+input[type="text"], input[type="search"], input[type="password"], input[type="email"], input[type="url"], input[type="tel"], input[type="number"] {
+	background-color: #e7ad79;
+	border: 1px solid #b87948;
+	border-radius: 4px;
+	color: #442714;
+}
+.inputbox:hover, select:hover, textarea:hover { border-color: #93400d; }
+.inputbox:focus, select:focus, textarea:focus { border-color: #8f350a; background-color: #efbb8b; }
+.inputbox::placeholder, input::placeholder, textarea::placeholder { color: #694127; opacity: 1; }
+.search-box input.inputbox, .search-header input.inputbox { background-color: #e7ad79; border-color: #a65b29; color: #442714; }
+input:autofill { background-color: #e7ad79; color: #442714; }
+input:-webkit-autofill { -webkit-text-fill-color: #442714; -webkit-box-shadow: 0 0 0 1000px #e7ad79 inset; }
+input[type="checkbox"], input[type="radio"] { accent-color: #a44b13; }
+/* Native upload controls and unclassed form buttons need their own skin. */
+button:not(.dropdown-trigger):not(.alert_close), input[type="button"], input[type="submit"], input[type="reset"] {
+	background-color: #ffb56d;
+	border: 1px solid #ac591f;
+	border-radius: 4px;
+	color: #442714;
+}
+input[type="file"] { background-color: #e7ad79; color: #442714; max-width: 100%; box-sizing: border-box; }
+input[type="file"]::file-selector-button {
+	margin-right: 8px;
+	padding: 4px 8px;
+	border: 1px solid #a65b29;
+	border-radius: 4px;
+	background: #ffb56d;
+	color: #442714;
+	font: inherit;
+	cursor: pointer;
+}
+input[type="file"]::file-selector-button:hover { background: #ffc68f; }
+select {
+	appearance: none;
+	-webkit-appearance: none;
+	background-image: url("./images/halloween-chevron.svg");
+	background-position: right 7px center;
+	background-size: 9px 6px;
+	background-repeat: no-repeat;
+	padding-right: 24px;
+}
+select[multiple], select[size]:not([size="1"]) { background-image: none; padding-right: 4px; }
+.rtl select { background-position: left 7px center; padding-right: 4px; padding-left: 24px; }
+.rtl select[multiple], .rtl select[size]:not([size="1"]) { padding-left: 4px; }
+option { background-color: #e7ad79; color: #442714; }
+input[type="checkbox"], input[type="radio"] {
+	appearance: none;
+	-webkit-appearance: none;
+	display: inline-grid;
+	place-content: center;
+	width: 14px;
+	height: 14px;
+	margin: 0 3px;
+	padding: 0;
+	box-sizing: border-box;
+	border: 1px solid #9c5c31;
+	background-color: #e7ad79;
+	vertical-align: -2px;
+	cursor: pointer;
+}
+input[type="checkbox"] { border-radius: 3px; }
+input[type="radio"] { border-radius: 50%; }
+input[type="checkbox"]:checked { background-color: #84271e; border-color: #84271e; }
+input[type="checkbox"]:checked::after { content: ""; width: 3px; height: 7px; border: solid #ffe2b7; border-width: 0 2px 2px 0; transform: translateY(-1px) rotate(45deg); }
+input[type="radio"]:checked { background-color: #84271e; box-shadow: inset 0 0 0 3px #e7ad79; }
+input[type="checkbox"]:disabled, input[type="radio"]:disabled { opacity: .5; cursor: default; }
+@media (forced-colors: active) {
+	input[type="checkbox"], input[type="radio"], select { appearance: auto; -webkit-appearance: auto; }
+	input[type="checkbox"]:checked::after { display: none; }
+}
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+	outline: 2px solid #9b3d12;
+	outline-offset: 2px;
+}
+.wrap > a:focus-visible { outline-color: #ffc285; }
+.button, a.button1, input.button1, a.button2, input.button2, input.button3 {
+	background: #ffb56d;
+	border: 1px solid #ac591f;
+	border-radius: 4px;
+	color: #442714;
+	box-shadow: none;
+	text-shadow: none;
+}
+.button:hover, .button:focus, a.button1:hover, input.button1:hover, a.button2:hover, input.button2:hover, input.button3:hover {
+	background: #ffc68f;
+	border-color: #8f350a;
+	color: #442714;
+	text-shadow: none;
+}
+.button .icon, .button-secondary, .button:hover .icon, .button:focus .icon { color: #75300c; }
+.tabs .tab > a, .minitabs .tab > a, .navigation a, .rtl .navigation a {
+	padding: 5px 9px;
+	background: #eeb47f;
+	border: 1px solid #bc7946;
+	border-radius: 4px;
+	color: #442714;
+	font-size: 1em;
+	box-shadow: none;
+}
+.tabs .tab > a:hover, .minitabs .tab > a:hover, .navigation a:hover { background: #ffd3ab; color: #75300c; }
+.tabs .activetab > a, .tabs .activetab > a:hover, .minitabs .activetab > a, .minitabs .activetab > a:hover,
+.navigation .active-subsection a, .navigation .active-subsection a:hover {
+	background: #ffb56d;
+	border-color: #91400e;
+	color: #442714;
+	box-shadow: none;
+}
+.tabs, .minitabs { margin-bottom: 9px; }
+.navigation li { margin-bottom: 4px; }
+.navigation a { padding: 6px 9px; }
+.panel-container { padding: 12px; border: 1px solid #b87948; border-radius: 7px; }
+.cp-menu, .cp-main { box-sizing: border-box; }
+.cp-menu { padding-right: 12px; }
+.rtl .cp-menu { padding-right: 0; padding-left: 12px; }
+.cp-main .panel { padding: 12px 14px; }
+.cp-main h2, .cp-main h3, .panel-container h2 { color: #75300c; }
+.cp-main .panel p { line-height: 1.6; }
+.cp-main fieldset dl { margin-bottom: 10px; }
+.cp-main fieldset dt label { font-weight: 600; }
+.cp-main fieldset.fields1, .cp-main fieldset.fields2 { font-size: 1em; }
+.cp-main fieldset.submit-buttons { margin-top: 12px; }
+.cp-main .pm-message { background: #f8d8bd; border-color: #b87948; }
+/* BBCode, posting and search inherit the current prosilver markup. */
+.postbody .content { line-height: 1.65; }
+.content p { margin-bottom: 1em; }
+blockquote, .codebox, .attachbox { margin-top: 12px; border: 1px solid #bd8356; border-radius: 5px; background: #ffe6cc; }
+blockquote { padding: 10px 12px; border-inline-start: 3px solid #a64b12; }
+blockquote blockquote { background: #f8d8bd; }
+blockquote blockquote blockquote { background: #ffe6cc; }
+.codebox p, .signature, .notice, .attachbox dd, .postprofile { border-color: #bd8356; }
+.codebox code { color: #364e22; }
+.content h2 { color: #75300c; border-color: #bd8356; }
+.postlink, .postlink:visited { color: #8f350a; border-bottom-color: #9b3d12; }
+.postlink:hover { color: #75300c; background-color: #ffe6cc; }
+#format-buttons { padding: 8px 0; }
+#format-buttons input, #format-buttons select { margin-bottom: 4px; }
+.message-box textarea { padding: 10px; color: #442714; line-height: 1.6; box-sizing: border-box; }
+#postingbox .fields1 dt label { color: #442714; }
+fieldset.polls dl { border-color: #bd8356; color: #61412b; }
+/* Dropdowns and notification panels use one matching surface. */
+.dropdown .dropdown-contents, .jumpbox-forum-link, .jumpbox-sub-link, .phpbb_alert { background: #ffe0c4; border-color: #b87948; color: #442714; }
+.phpbb_alert h2, .phpbb_alert h3 { color: #75300c; border-color: #b87948; }
+.dropdown a { color: #8f350a; }
+.dropdown .pointer { border-color: #b87948 transparent; }
+.dropdown .pointer-inner, .dropdown-extended .pointer-inner, .jumpbox .dropdown .pointer-inner { border-color: #ffe0c4 transparent; }
+.dropdown-extended .header, .dropdown-extended .footer { background: #ffe0c4; color: #442714; border-color: #d49b68; }
+.dropdown-extended a.mark_read { background-color: transparent; }
+.dropdown-extended ul li { border-color: #d49b68; }
+.dropdown-extended ul li:hover, .jumpbox-forum-link:hover, .jumpbox-sub-link:hover { background: #f4c9a4; color: #442714; }
+.jumpbox-cat-link, .jumpbox-cat-link:hover { background: #ffb56d; color: #442714; border-color: #b87948; }
+.notification_list p.notification-time { color: #61412b; }
+.pagination li a, .pagination li.active span { background: #ffb56d; color: #442714; border-color: #ac591f; }
+.pagination li a:hover, .pagination li.active span { background: #ffe0c4; color: #75300c; }
+.pagination li.ellipsis span { color: inherit; }
+table.table1 tbody td, table.table1 tbody tr, table.table1 tbody th { border-color: #d49b68; }
+table.table1 thead th, .panel-container table.table1 thead th { color: #442714; border-color: #b87948; }
+table.table1 thead th a { color: #75300c; }
+table.zebra-list tr:nth-child(odd) td, ul.zebra-list li:nth-child(odd) { background: #f8d8bd; }
+table.zebra-list tr:nth-child(even) td, ul.zebra-list li:nth-child(even) { background: #f2bc8a; }
+.copyright { color: #f5d7ba; padding: 8px; line-height: 1.7; }
+.copyright a { color: #ffb56d; }
+.halloween-credit { display: block; }
+.rtl .headerbar .logo { float: none; padding: 0; }
+.rtl .site-description { float: none; }
+.rtl .site-description h1 { margin-left: 0; margin-right: 0; }
+.rtl .halloween-pumpkin { left: auto; right: -22px; }
+.rtl .halloween-stat-icon { float: left; margin: 0 14px 8px 0; }
+/* Subtle silhouettes remain behind header content; never over forms. */
+.halloween-flight { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.halloween-fly { position: absolute; left: -100px; top: 20%; width: 45px; height: 24px; object-fit: contain; opacity: 0; animation: halloween-flight 12s ease-in-out 1 both; }
+.halloween-fly-2 { top: 45%; animation-delay: .2s; }
+.halloween-fly-3 { top: 65%; animation-delay: .4s; }
+@keyframes halloween-flight {
+	0% { transform: translate(0, 0); opacity: 0; }
+	15% { opacity: .14; }
+	45% { transform: translate(45vw, -45px); opacity: .14; }
+	70% { transform: translate(75vw, 35px); opacity: .1; }
+	100% { transform: translate(110vw, 0); opacity: 0; }
+}
+@media (max-width: 900px) {
+	#navigation a, .rtl #navigation a { background: #eeb47f; }
+	.headerbar > .inner { gap: 12px; }
+	.site_logo { width: 300px; height: 98px; }
+}
+@media (max-width: 700px) {
+	body { padding: 0; }
+	.wrap { margin: 0; padding: 8px; border-radius: 0; border-width: 0; }
+	.headerbar { padding: 10px 12px; }
+	.headerbar > .inner { display: block; }
+	.site-description { display: block; width: auto; text-align: center; }
+	.headerbar .logo { display: inline-block; }
+	.site_logo { width: 300px; height: 98px; }
+	.site-description h1 { margin-top: 5px; font-size: 1.6em; }
+	.site-description p { display: block; }
+	.site-description .skiplink { display: none; }
+	.halloween-pumpkin, .halloween-flight { display: none; }
+	.navbar { padding: 4px 8px; }
+	.panel, .post, .stat-block, .cp-main .panel { padding: 10px; border-radius: 6px; }
+	.panel-container { padding: 8px; }
+	.cp-menu, .rtl .cp-menu { padding: 0; }
+	li.header dl { padding: 4px 8px; }
+	.tabs .tab > a, .minitabs .tab > a { padding: 4px 7px; }
+	.halloween-stat-icon { width: 38px; height: 38px; margin-left: 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+	.halloween-flight { display: none; }
+	.halloween-fly { animation: none; }
+}
+@media print {
+	.halloween-pumpkin, .halloween-flight, .halloween-stat-icon { display: none; }
+	.wrap { background: #fff; border: 0; box-shadow: none; }
+}
